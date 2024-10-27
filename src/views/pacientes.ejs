@@ -1,0 +1,79 @@
+<% include partials/_header %>
+
+
+
+<div class="conteiner">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>
+                        <th>Departamento</th>
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Criticidad</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data) { %>
+                        <% for (var i=0; i< data.length; i++) { %>
+                            <tr>
+                                <td> <%= (i + 1) %></td>
+                                <td> <%= data[i].nombre %></td>
+                                <td> <%= data[i].apellido %></td>
+                                <td> <%= data[i].direccion %></td>
+                                <td> <%= data[i].departamento %></td>
+                                <td> <%= data[i].edad %></td>
+                                <td> <%= data[i].genero %></td>
+                                <td> <%= data[i].criticidad %></td>
+                                <td>
+                                    <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a>
+                                </td>
+                            </tr>
+                       <% } %>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" placeholder="Direccion" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="departamento" placeholder="Departamento" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="edad" placeholder="Edad" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="genero" placeholder="Genero" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="enum" name="criticidad" placeholder="Criticidad" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Insertar paciente
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>
