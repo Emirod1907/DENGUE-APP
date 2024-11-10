@@ -1,12 +1,13 @@
-<% include partials/_header %>
+<% include ('partials/header') %>
 
-
+<!-- <link rel="stylesheet" href="src/public/pacientes.css"> -->
 
 <div class="conteiner">
     <div class="row mt-5">
         <div class="col-md-7">
             <table class="table table-bordered table-hover">
                 <thead>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/quartz/bootstrap.min.css">
                     <tr>
                         <th>N°</th>
                         <th>Nombre</th>
@@ -63,8 +64,15 @@
                         <div class="form-group">
                             <input type="text" name="genero" placeholder="Genero" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input type="enum" name="criticidad" placeholder="Criticidad" class="form-control">
+                        </div> -->
+                        <div class="form-group">
+                            <select name="criticidad" class="form-control">
+                                <option value="GRAVE" <% if (data.criticidad === 'GRAVE') { %> selected <% } %>>GRAVE</option>
+                                <option value="MEDIO" <% if (data.criticidad === 'MEDIO') { %> selected <% } %>>MEDIO</option>
+                                <option value="LEVE" <% if (data.criticidad === 'LEVE') { %> selected <% } %>>LEVE</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             Insertar paciente
@@ -76,4 +84,4 @@
     </div>
 </div>
 
-<% include partials/_footer %>
+<% include('partials/footer') %>
