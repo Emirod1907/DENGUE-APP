@@ -1,7 +1,7 @@
 const controller = {};
 
 controller.list =  (req,res)=>{
-    req.getConnection((err, conn) =>{
+    req.getConnection((_err, conn) =>{
         conn.query('SELECT * FROM pacientes', (err, pacientes)=>{
             try {
                 res.render('pacientes',{
